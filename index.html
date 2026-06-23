@@ -7,9 +7,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #faf9f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
     #__bundler_loading { position: fixed; bottom: 20px; right: 20px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; color: #666; background: #fff; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); z-index: 10000; }
-    #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #faf9f5; z-index: 9999; }
-    #__bundler_thumbnail svg { width: 80px; height: 56px; object-fit: contain; }
-    #__bundler_placeholder { color: #999; font-size: 14px; }
   </style>
   <noscript>
     <style>#__bundler_loading { display: none; }</style>
@@ -19,15 +16,6 @@
   </noscript>
 </head>
 <body>
-  <div id="__bundler_thumbnail">
-  <svg viewBox="0 0 80 56" xmlns="http://www.w3.org/2000/svg">
-    <rect width="80" height="56" fill="#F23A47" rx="4"></rect>
-    <rect x="20" y="14" width="40" height="28" rx="3" fill="white" opacity="0.9"></rect>
-    <rect x="26" y="20" width="28" height="3" rx="1.5" fill="#F23A47"></rect>
-    <rect x="26" y="26" width="20" height="2" rx="1" fill="#ccc"></rect>
-    <rect x="26" y="31" width="22" height="2" rx="1" fill="#ccc"></rect>
-  </svg>
-</div>
   <div id="__bundler_loading">Unpacking...</div>
 
   <script>
@@ -273,9 +261,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (gen !== navGen) return;
         var cw = frame.contentWindow;
         try { cw.document.title && (document.title = cw.document.title); } catch (e) {}
-        var splash = document.getElementById('__bundler_thumbnail') ||
-                     document.getElementById('__bundler_placeholder');
-        if (splash) splash.remove();
         if (loading) loading.remove();
         var el = r.anchor && cw.document.getElementById(r.anchor);
         if (el) el.scrollIntoView();
